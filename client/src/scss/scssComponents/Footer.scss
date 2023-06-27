@@ -1,0 +1,128 @@
+//color
+$bg-color: #111;
+$text-color-footer: #fff;
+$tw-color: #01B0F0;
+$ig-color: #d6249f;
+$fb-color: #0000FF;
+
+//breakpoint
+$sm: 480px;
+$lg: 960px;
+
+@mixin sm {
+    @media (min-width: #{$sm}) {
+        @content;
+    }
+}
+
+@mixin lg {
+    @media (min-width: #{$lg}) {
+        @content;
+    }
+}
+
+footer {
+    background-color: $bg-color;
+    color: $text-color-footer;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include lg {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .titleFooter {
+        margin: 0;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+
+    .infoSite {
+        display: flex;
+        gap: 5rem;
+
+        .navLinksFooter {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            line-height: 2;
+
+            a {
+                text-decoration: none;
+                color: $text-color-footer;
+            }
+        }
+
+        .social {
+            text-align: center;
+
+            ul {
+                list-style: none;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+
+                li a {
+                    text-decoration: none;
+
+                    .facebook,
+                    .instagram,
+                    .twitter {
+                        font-size: 2.5rem;
+                    }
+
+                    .facebook {
+                        color: $fb-color;
+                    }
+
+                    .instagram {
+                        color: $ig-color;
+                    }
+
+                    .twitter {
+                        color: $tw-color;
+                        transition: all 0.6s;
+
+                    }
+                }
+
+            }
+        }
+    }
+
+    .infoGroup {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 1rem;
+
+        .group {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+
+            button {
+                padding: 1.5em 4em;
+                border: none;
+                border-radius: 10px;
+                background-color: darkblue;
+                color: $text-color-footer;
+            }
+        }
+
+        .location {
+            text-align: end;
+        }
+
+        .map {
+            width: 450px;
+            min-width: 300px;
+            height: 200px;
+            background-color: $text-color-footer;
+        }
+    }
+}

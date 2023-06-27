@@ -1,0 +1,81 @@
+//color
+$color-primary: #fff;
+$bg-color: #000;
+
+//marge
+$margin-btn: 1rem 1.5rem;
+
+//tailles
+$width: 80%;
+
+
+.mainContact {
+    height: 100%;
+    background-image: url('../../img/form-contact.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+
+
+    .contactForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 5rem 0 5rem 0;
+
+
+
+        form {
+            width: 95%;
+            max-width: 700px;
+            min-width: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            line-height: 3rem;
+            border: 1px solid $color-primary;
+            text-align: left;
+            background-color: hsla(0, 0%, 0%, 0.7);
+            color: $color-primary;
+
+            legend {
+                text-transform: uppercase;
+                font-size: 1.5rem;
+            }
+
+            label {
+                width: $width;
+            }
+
+            textarea {
+                border: none;
+                max-width: $width;
+                border-radius: 7px;
+            }
+
+            input {
+                width: $width;
+                border: none;
+                padding: 1em;
+                border-radius: 7px;
+            }
+
+            .contactBtn {
+                margin: 2rem auto;
+                background-color: $bg-color;
+                color: $color-primary;
+                border: none;
+                padding: 1em 2em;
+                border-radius: 10px;
+                transition: ease 0.6s;
+                font-weight: bolder;
+
+                &:hover {
+                    background-color: $color-primary;
+                    color: $bg-color;
+                }
+            }
+        }
+
+    }
+}

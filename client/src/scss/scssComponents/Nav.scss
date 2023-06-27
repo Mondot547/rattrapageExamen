@@ -1,0 +1,254 @@
+//definition du breakpoint desktop
+$breakpoint: (
+    desktop: 1100px,
+    mobile: 350px
+);
+
+//creation des mixin
+@mixin mobile {
+    @media srceen and (min-width: map-get($breakpoint, mobile)) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: map-get($breakpoint, desktop)) {
+        @content;
+    }
+}
+
+//Définition des variables
+$nav-bg: #fff;
+$line-color: #444;
+$logo-color: #fff;
+$hambox-bg: #023509;
+
+//style de base de la nav
+nav {
+    position: relative;
+    background: $nav-bg;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    .nav-container {
+
+
+
+        //Style des éléments de la berre de navigation
+        .navbar {
+            z-index: 11;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 2rem 0.5rem 2rem;
+
+            .nav-links-desktop {
+
+                display: none;
+
+                @include desktop {
+                    position: relative;
+                    width: 100%;
+                    height: 30px;
+                    display: inline-flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    list-style: none;
+                    gap: 2rem;
+                }
+
+                .nav-item-desktop {
+
+                    a {
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        color: $line-color;
+                        margin: 0.5rem;
+                        padding: 0.5em;
+                        border: 1px solid transparent;
+
+                        &:hover {
+
+                            border: 1px solid $line-color;
+                            border-radius: 10px;
+                            transition: all 0.5s ease-in-out;
+                        }
+
+                        &:visited {
+                            color: $line-color;
+                        }
+                    }
+                }
+            }
+
+            //Style du logo de la barre de navigation
+            .nav-logo {
+                font-size: 2.5rem;
+                font-weight: 400;
+                padding-bottom: 0.3em;
+
+                p {
+                    border-bottom: 2px solid $line-color;
+                    color: $line-color;
+                    margin: 0 auto;
+                }
+            }
+
+
+            //Style du button de menu hamburger
+            .menu-toggle {
+                display: flex;
+                flex-direction: row-reverse;
+                cursor: pointer;
+
+                @include desktop {
+                    display: none;
+                }
+
+
+                //Style de la boite du hamburger
+                .hambox {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 0.2rem;
+                    width: 44px;
+                    height: 44px;
+                    cursor: pointer;
+                    right: 0;
+                    border-radius: 50%;
+                    transition: 0.3s ease;
+
+
+                    @include desktop {
+                        display: none;
+                    }
+
+
+                    //Style des lignes du hamburger
+                    .lineTop,
+                    .lineBottom,
+                    .lineMiddle {
+                        margin: 0 auto;
+                        display: block;
+                        width: 24px;
+                        height: 2px;
+                        border-radius: 10px;
+                        background: $line-color;
+                        transform: rotate(0deg);
+                        transition: all 0.4s;
+                    }
+
+                    //Style des lignes une fois tourner
+                    .lineTop {
+
+                        &.spin {
+                            margin: 0.3rem 0.65rem;
+                            transform: rotate(135deg);
+                            color: $line-color;
+
+                        }
+                    }
+
+                    .lineMiddle {
+                        &.spin {
+                            display: none;
+                        }
+                    }
+
+                    .lineBottom {
+
+                        &.spin {
+                            margin: -0.55rem 0.7rem;
+                            transform: rotate(225deg);
+                            color: $line-color;
+                        }
+                    }
+                }
+            }
+        }
+
+        //Style de l'overlay
+        .nav-overlay {
+            position: absolute;
+            z-index: 2;
+            top: 30rem;
+            background: $nav-bg;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.5s;
+
+
+            @include desktop {
+                display: none;
+            }
+
+
+            //Style du group de link overlay
+            .nav-links-mobile {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+
+                //Style des li overlay
+                .nav-item {
+                    display: flex;
+                    flex-direction: column;
+                    list-style: none;
+                    border: 1px solid transparent;
+                    padding: 0.5em;
+                    margin: 0.5rem;
+
+                    &:hover,
+                    &:focus-within {
+                        border: 1px solid $line-color;
+                        border-radius: 10px;
+                        transition: all 0.2s;
+                    }
+
+                    //Style des a overlay
+                    a {
+                        text-decoration: none;
+                        color: $line-color;
+                        text-transform: uppercase;
+                        font-family: Verdana, Geneva, Tahoma, sans-serif;
+                        font-size: large;
+
+                        &:visited {
+                            color: $line-color;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    //Style de la barre de navigation lorsqu'elle est ouverte
+    &.nav-open {
+        .nav-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+
+
+        //Style de la boite et des lignes quand l'overlay apparait
+        .hambox .lineTop {
+            transform: rotate(45deg);
+        }
+
+        .hambox .lineMiddle {
+            opacity: 0;
+        }
+
+        .hambox .lineBottom {
+            transform: rotate(-45deg);
+        }
+    }
+}
