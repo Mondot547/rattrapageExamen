@@ -26,13 +26,10 @@ const Nav = () => {
                             <Link to="/menu">Menu</Link>
                         </li>
                         <li className="nav-item-desktop">
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li className="nav-item-desktop">
                             <Link to="/contact">Contact</Link>
                         </li>
-                        <li className="nav-item-desktop">
-                            <FaUser />
+                        <li className="nav-item">
+                            <Link to="/login"><FaUser /></Link>
                         </li>
                     </ul>
 
@@ -53,7 +50,7 @@ const Nav = () => {
                     className="nav-overlay"
                     onClick={toggleNav}
                     style={{
-                        top: navOpen ? '100%' : '-1010%',
+                        top: navOpen ? '100%' : '40%',
                         height: navOpen ? '90vh' : '0',
                     }}
                 >
@@ -65,13 +62,10 @@ const Nav = () => {
                             <Link to="/menu">Menu</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/about">About</Link>
-                        </li>
-                        <li className="nav-item">
                             <Link to="/contact">Contact</Link>
                         </li>
                         <li className="nav-item">
-                            <FaUser />
+                            <Link to="/login"><FaUser /></Link>
                         </li>
                     </ul>
                 </div>

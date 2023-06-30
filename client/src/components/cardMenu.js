@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Menu = ({ items }) => {
+
+
+const Menu = () => {
+    const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        axios.get('/menus')
+            .then((response) => {
+                setItems(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
+
     return (
         <div className="section-center">
             {items.map((item) => {
@@ -20,6 +35,6 @@ const Menu = ({ items }) => {
             })}
         </div>
     );
-};
+}
 
 export default Menu;

@@ -6,7 +6,7 @@ import '../scss/scssPages/Menu.scss';
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
 
-const allCategories = ["all", ...new Set(items.map((item) => item.category))];
+const allCategories = ["Tout", ...new Set(items.map((item) => item.category))];
 
 const MenuPage = () => {
     const [menuItems, setMenuItems] = useState(items);
@@ -14,7 +14,7 @@ const MenuPage = () => {
 
     const filterItems = (category) => {
         setActiveCategory(category);
-        if (category === "all") {
+        if (category === "Tout") {
             setMenuItems(items);
         } else {
             const newItems = items.filter((item) => item.category === category);

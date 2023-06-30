@@ -1,0 +1,30 @@
+$bg-color-btn: #000;
+$text-color-btn: #fff;
+$hover-bg-btn: #888;
+$text-hover-btn: #000;
+
+.main-login {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    input {
+        height: 30px;
+    }
+
+    .btn-login {
+        padding: 1em 2em;
+        border: none;
+        background-color: $bg-color-btn;
+        color: $text-color-btn;
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: $hover-bg-btn;
+            color: $text-hover-btn;
+        }
+    }
+}

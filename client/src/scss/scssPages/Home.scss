@@ -31,7 +31,6 @@ header {
 
     .banner {
         width: 100%;
-        max-width: 1440px;
         height: 500px;
         display: flex;
         justify-content: center;
@@ -41,14 +40,6 @@ header {
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
-
-        @include lg {
-            background-size: contain;
-        }
-
-        @include xl {
-            background-size: contain;
-        }
 
         img {
             width: 100px;
@@ -113,19 +104,15 @@ main {
         padding: 4em;
 
         h1 {
-            font-size: 3rem;
+            font-size: 6rem;
             margin: 0;
 
-            @include md {
-                font-size: 4rem;
-            }
-
             @include lg {
-                font-size: 5rem;
+                font-size: 8rem;
             }
 
             @include xl {
-                font-size: 6rem;
+                font-size: 10rem;
             }
         }
 
