@@ -28,6 +28,9 @@ const Nav = () => {
                         <li className="nav-item-desktop">
                             <Link to="/contact">Contact</Link>
                         </li>
+                        <li className="nav-item-desktop">
+                            <Link to="/formulaire">Add Menu</Link>
+                        </li>
                         <li className="nav-item">
                             <Link to="/login"><FaUser /></Link>
                         </li>
@@ -63,6 +66,9 @@ const Nav = () => {
                         </li>
                         <li className="nav-item">
                             <Link to="/contact">Contact</Link>
+                        </li>
+                        <li className="nav-item-desktop">
+                            <Link to="/formulaire">Add Menu</Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/login"><FaUser /></Link>

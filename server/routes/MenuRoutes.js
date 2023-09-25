@@ -4,7 +4,7 @@ const Menu = require('../models/menuShema');
 
 
 //Route pour obtenir tous les menus
-router.get('/menu', async (req, res) => {
+router.get('/menus', async (req, res) => {
     try {
         const menu = await Menu.find();
         res.json(menu);
@@ -15,7 +15,7 @@ router.get('/menu', async (req, res) => {
 });
 
 //Route pour ajouter un menu
-router.post('/menu', async (req, res) => {
+router.post('/menus', async (req, res) => {
     try {
         const { name, desc, price } = req.body;
         const newMenu = new Menu({
@@ -32,7 +32,7 @@ router.post('/menu', async (req, res) => {
 });
 
 //Route pour mettre a jour un menu
-router.put('/menu:id', async (req, res) => {
+router.put('/menus:id', async (req, res) => {
     try {
         const { name, desc, price } = req.body;
         const updateMenu = await Menu.findByIdAndUpdate(
@@ -43,6 +43,20 @@ router.put('/menu:id', async (req, res) => {
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Erruer de Server' });
+    }
+});
+
+//Route pour supprimer un menu
+router.delete('/menus/:id', async (req, res) => {
+    try {
+        const deletedMenu = await Menu.findByIdAndDelete(req.params.id);
+        if (!deletedMenu) {
+            return res.status(404).json({ message: 'Menu non trouvé' });
+        }
+        res.json({ message: 'Menu supprimé avec succès' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Erreur de Server' });
     }
 });
 
